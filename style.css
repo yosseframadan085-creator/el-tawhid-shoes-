@@ -1,0 +1,202 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(#111, #222);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+body::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 0, 0);
+    position: absolute;
+    z-index: -1;
+    clip-path: circle(33% at right 70%);
+}
+.container {
+    width: 80%;
+    height: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    padding: 20px 0px;
+}
+
+nav .logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+nav .logo:hover {
+    text-shadow: 1px 1px 7px rgba(179,4,4,0.8);
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 30px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+}
+nav ul li a:hover {
+    color: rgba(255, 255, 255, 0.411);
+    text-shadow: 1px 1px 1px rgb(255, 255, 255);
+    border-bottom: 2px solid rgba(179, 4, 4, 0.8);
+    transition: 0.5s;
+    
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.content .text {
+    color: #fff;
+    width: 55%;
+}
+
+.content .text h2 {
+    font-size: 38px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 3px rgba(179, 4, 4, 0.8);
+    animation: slideLeft 0.9s ease;
+}
+
+.content .text p {
+    font-size: 18px;
+    line-height: 25px;
+    margin: 10px 0;
+    letter-spacing: 1px;
+    animation: slideLeft 1.2s ease;
+}
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 30px;
+    background: rgb(179, 4, 4 ,0.8);
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: rgb(179, 4, 4);
+    transform: translateY(-3px);
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.content .img {
+    width: 40%;
+}
+
+.content .img img {
+    width: 400px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+@media (max-width: 900px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .content .text,
+    .content .img {
+        width: 100%;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .content .text h2 {
+        font-size: 26px;
+    }
+
+    .content .text p {
+        font-size: 14px;
+    }
+
+    nav ul li {
+        margin: 0 8px;
+    }
+         nav .logo {
+             font-size: 25px;
+             letter-spacing: 1px;
+         }
+}
